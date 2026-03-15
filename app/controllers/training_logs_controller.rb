@@ -13,7 +13,7 @@ class TrainingLogsController < ApplicationController
   def create
     @training_log = current_user.training_logs.build(training_log_params)
     if @training_log.save
-      redirect_to training_logs_path, notice: 'Training log created successfully.'
+      redirect_to training_logs_path, notice: "記録を追加しました。"
     else
       @exercises = current_user.exercises
       render :new, status: :unprocessable_entity
@@ -23,7 +23,7 @@ class TrainingLogsController < ApplicationController
   def destroy
     @training_log = current_user.training_logs.find(params[:id])
     @training_log.destroy
-    redirect_to training_logs_path, notice: 'Training log deleted successfully.'
+    redirect_to training_logs_path, notice: "記録を削除しました。"
   end
 
   private
