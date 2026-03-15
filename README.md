@@ -1,24 +1,34 @@
-# README
+# Training App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## アプリを作った理由
+- トレーニングの重量や回数を毎回ノートにメモするのが面倒だと感じたため
+- 過去の記録を振り返り、成長を実感できるアプリが欲しかったため
+- 自分が実際に使いたいアプリを作成した
 
-Things you may want to cover:
+## できること（機能一覧）
+- ユーザー登録・ログイン・ログアウト
+- 種目の追加・削除・一覧表示
+- トレーニング記録の追加・削除・一覧表示（重量・回数・セット数・メモ）
+- ダッシュボードに最近のトレーニング記録を表示
 
-* Ruby version
+## 技術スタック
+- Ruby 3.4.8
+- Ruby on Rails 8.1.2
+- PostgreSQL 16
+- Bootstrap 5
+- Devise（認証）
+- Docker（開発環境）
+- Render（本番サーバー）
+- Neon（本番データベース）
 
-* System dependencies
+## 今後の改善ポイント
+- グラフで重量の成長を可視化する
+- 種目別に記録を絞り込む機能
+- トレーニングメニューを作成・管理する機能
+- 他のユーザーと記録を共有・比較する機能
+- 評価機能（他人の投稿にいいねやコメントをつけられる）
+- 一緒にトレーニング機能（他のユーザーと一緒にトレーニングできる）
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## デプロイ
+- Render + Neon で公開
+- URL: https://training-app-ih61.onrender.com
