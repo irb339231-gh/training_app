@@ -1,9 +1,9 @@
-<div style="text-align: center; margin-top: 100px;">
-  <h1>Training App</h1>
-  <p>あなたの成長を記録しよう</p>
+<div class="text-center py-5">
+  <h1 class="display-4 fw-bold mb-3">Training App</h1>
+  <p class="lead mb-5">あなたの成長を記録しよう</p>
 
-  <div style="margin-top: 40px;">
-    <%= link_to "ログイン", new_user_session_path, style: "padding: 10px 20px; background: #333; color: white; text-decoration: none; border-radius: 5px; margin-right: 10px;" %>
-    <%= link_to "新規登録", new_user_registration_path, style: "padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px;" %>
+  <div class="d-flex justify-content-center gap-3">
+    <%= link_to "ログイン", new_user_session_path, class: "btn btn-dark btn-lg" %>
+    <%= link_to "新規登録", new_user_registration_path, class: "btn btn-primary btn-lg" %>
   </div>
 </div>

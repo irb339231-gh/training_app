@@ -1,45 +1,51 @@
-<h1>記録を追加</h1>
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <h1 class="mb-4">記録を追加</h1>
 
-<%= form_with model: @training_log do |f| %>
-  <% if @training_log.errors.any? %>
-    <div>
-      <% @training_log.errors.full_messages.each do |message| %>
-        <p><%= message %></p>
+    <%= form_with model: @training_log, class: "card p-4 shadow-sm" do |f| %>
+      <% if @training_log.errors.any? %>
+        <div class="alert alert-danger">
+          <% @training_log.errors.full_messages.each do |message| %>
+            <p class="mb-0"><%= message %></p>
+          <% end %>
+        </div>
       <% end %>
+
+      <div class="mb-3">
+        <%= f.label :date, "日付", class: "form-label" %>
+        <%= f.date_field :date, class: "form-control" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :exercise_id, "種目", class: "form-label" %>
+        <%= f.collection_select :exercise_id, @exercises, :id, :name, { prompt: "種目を選択してください" }, { class: "form-select" } %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :weight, "重量(kg)", class: "form-label" %>
+        <%= f.number_field :weight, step: 0.5, class: "form-control" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :reps, "回数", class: "form-label" %>
+        <%= f.number_field :reps, class: "form-control" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :sets, "セット数", class: "form-label" %>
+        <%= f.number_field :sets, class: "form-control" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :memo, "メモ", class: "form-label" %>
+        <%= f.text_area :memo, class: "form-control", rows: 3 %>
+      </div>
+
+      <%= f.submit "記録する", class: "btn btn-primary w-100" %>
+    <% end %>
+
+    <div class="mt-3">
+      <%= link_to "戻る", training_logs_path, class: "btn btn-outline-secondary" %>
     </div>
-  <% end %>
-
-  <div>
-    <%= f.label :date, "日付" %>
-    <%= f.date_field :date %>
   </div>
-
-  <div>
-    <%= f.label :exercise_id, "種目" %>
-    <%= f.collection_select :exercise_id, @exercises, :id, :name, { prompt: "種目を選択してください" } %>
-  </div>
-
-  <div>
-    <%= f.label :weight, "重量(kg)" %>
-    <%= f.number_field :weight, step: 0.5 %>
-  </div>
-
-  <div>
-    <%= f.label :reps, "回数" %>
-    <%= f.number_field :reps %>
-  </div>
-
-  <div>
-    <%= f.label :sets, "セット数" %>
-    <%= f.number_field :sets %>
-  </div>
-
-  <div>
-    <%= f.label :memo, "メモ" %>
-    <%= f.text_area :memo %>
-  </div>
-
-  <%= f.submit "記録する" %>
-<% end %>
-
-<%= link_to "戻る", training_logs_path %>
+</div>
