@@ -1,0 +1,20 @@
+<h1>種目を追加</h1>
+
+<%= form_with model: @exercise do |f| %>
+  <% if @exercise.errors.any? %>
+    <div>
+      <% @exercise.errors.full_messages.each do |message| %>
+        <p><%= message %></p>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label :name, "種目名" %>
+    <%= f.text_field :name %>
+  </div>
+
+  <%= f.submit "追加する" %>
+<% end %>
+
+<%= link_to "戻る", exercises_path %>

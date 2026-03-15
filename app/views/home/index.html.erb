@@ -1,2 +1,9 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div style="text-align: center; margin-top: 100px;">
+  <h1>Training App</h1>
+  <p>あなたの成長を記録しよう</p>
+
+  <div style="margin-top: 40px;">
+    <%= link_to "ログイン", new_user_session_path, style: "padding: 10px 20px; background: #333; color: white; text-decoration: none; border-radius: 5px; margin-right: 10px;" %>
+    <%= link_to "新規登録", new_user_registration_path, style: "padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px;" %>
+  </div>
+</div>

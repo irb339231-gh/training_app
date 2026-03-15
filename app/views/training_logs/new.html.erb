@@ -1,0 +1,45 @@
+<h1>記録を追加</h1>
+
+<%= form_with model: @training_log do |f| %>
+  <% if @training_log.errors.any? %>
+    <div>
+      <% @training_log.errors.full_messages.each do |message| %>
+        <p><%= message %></p>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label :date, "日付" %>
+    <%= f.date_field :date %>
+  </div>
+
+  <div>
+    <%= f.label :exercise_id, "種目" %>
+    <%= f.collection_select :exercise_id, @exercises, :id, :name, { prompt: "種目を選択してください" } %>
+  </div>
+
+  <div>
+    <%= f.label :weight, "重量(kg)" %>
+    <%= f.number_field :weight, step: 0.5 %>
+  </div>
+
+  <div>
+    <%= f.label :reps, "回数" %>
+    <%= f.number_field :reps %>
+  </div>
+
+  <div>
+    <%= f.label :sets, "セット数" %>
+    <%= f.number_field :sets %>
+  </div>
+
+  <div>
+    <%= f.label :memo, "メモ" %>
+    <%= f.text_area :memo %>
+  </div>
+
+  <%= f.submit "記録する" %>
+<% end %>
+
+<%= link_to "戻る", training_logs_path %>

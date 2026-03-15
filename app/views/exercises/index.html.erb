@@ -1,0 +1,16 @@
+<h1>種目一覧</h1>
+
+<%= link_to "種目を追加", new_exercise_path %>
+
+<% if @exercises.empty? %>
+  <p>種目がまだありません</p>
+<% else %>
+  <ul>
+    <% @exercises.each do |exercise| %>
+      <li>
+        <%= exercise.name %>
+        <%= link_to "削除", exercise_path(exercise), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

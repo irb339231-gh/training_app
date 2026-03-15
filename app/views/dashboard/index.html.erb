@@ -1,0 +1,36 @@
+<h1>ダッシュボード</h1>
+
+<div>
+  <%= link_to "記録を追加", new_training_log_path %>
+  <%= link_to "種目管理", exercises_path %>
+  <%= link_to "記録一覧", training_logs_path %>
+</div>
+
+<h2>最近のトレーニング</h2>
+
+<% if @recent_logs.empty? %>
+  <p>記録がまだありません</p>
+<% else %>
+  <table>
+    <thead>
+      <tr>
+        <th>日付</th>
+        <th>種目</th>
+        <th>重量(kg)</th>
+        <th>回数</th>
+        <th>セット数</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @recent_logs.each do |log| %>
+        <tr>
+          <td><%= log.date %></td>
+          <td><%= log.exercise.name %></td>
+          <td><%= log.weight %></td>
+          <td><%= log.reps %></td>
+          <td><%= log.sets %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

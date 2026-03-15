@@ -1,0 +1,36 @@
+<h1>トレーニング記録</h1>
+
+<%= link_to "記録を追加", new_training_log_path %>
+
+<% if @training_logs.empty? %>
+  <p>記録がまだありません</p>
+<% else %>
+  <table>
+    <thead>
+      <tr>
+        <th>日付</th>
+        <th>種目</th>
+        <th>重量(kg)</th>
+        <th>回数</th>
+        <th>セット数</th>
+        <th>メモ</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @training_logs.each do |log| %>
+        <tr>
+          <td><%= log.date %></td>
+          <td><%= log.exercise.name %></td>
+          <td><%= log.weight %></td>
+          <td><%= log.reps %></td>
+          <td><%= log.sets %></td>
+          <td><%= log.memo %></td>
+          <td>
+            <%= link_to "削除", training_log_path(log), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
