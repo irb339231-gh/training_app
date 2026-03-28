@@ -6,5 +6,6 @@ Rails.application.routes.draw do
 
   resources :exercises, only: [:index, :new, :create, :destroy]
   resources :training_logs, only: [:index, :new, :create, :destroy]
+  resources :posts, only: [:index, :new, :create]
   root "home#index"
 end

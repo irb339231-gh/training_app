@@ -3,5 +3,6 @@ class DashboardController < ApplicationController
   
   def index
     @recent_logs = current_user.training_logs.includes(:exercise).order(date: :desc).limit(5)
+    @training_logs = current_user.training_logs.includes(:exercise)
   end
 end
